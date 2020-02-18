@@ -1,7 +1,10 @@
 <template>
   <div class="todo-item">
+    <input type="checkbox" />
     <p>{{ todo.title }}</p>
     <p>{{ todo.isDone }}</p>
+    <button>編集</button>
+    <button>削除</button>
   </div>
 </template>
 

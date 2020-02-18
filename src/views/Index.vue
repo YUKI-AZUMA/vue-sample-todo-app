@@ -1,6 +1,10 @@
 <template>
   <div>
     <h1>Todoリスト</h1>
+    <form>
+      <input />
+      <button>追加！</button>
+    </form>
     <TodoItemList class="todo-item-list" :todoList="todoList" />
   </div>
 </template>
