@@ -1,6 +1,10 @@
 <template>
   <div>
-    <TodoItem v-for="(todo, key) in todoList" :key="key" :todo="todo" />
+    <TodoItem
+      v-for="(todo, index) in todoList"
+      v-bind:key="index"
+      :todo="todo"
+    />
   </div>
 </template>
 

@@ -1,8 +1,7 @@
 <template>
   <div class="todo-item">
-    <input type="checkbox" />
-    <p>{{ todo.title }}</p>
-    <p>{{ todo.isDone }}</p>
+    <input type="checkbox" v-model="todo.isDone" />
+    <span v-bind:class="{ done: todo.isDone }">{{ todo.title }}</span>
     <button>編集</button>
     <button>削除</button>
   </div>
