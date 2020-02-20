@@ -2,7 +2,7 @@
   <div>
     <h1>Todoリスト</h1>
     <input v-model="newItem" />
-    <button v-on:click="addItem">追加！</button>
+    <button @click="addItem">追加！</button>
     <TodoItemList class="todo-item-list" :todoList="todoList" />
   </div>
 </template>
