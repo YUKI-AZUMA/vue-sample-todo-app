@@ -17,19 +17,20 @@ export default {
 
   data() {
     return {
+      newItem: '',
       todoList: [],
-      newItem: ''
+      todo: {
+        uid: 'hoge',
+        title: '',
+        isDone: false,
+        createdAt: new Date()
+      }
     }
   },
   methods: {
     addItem: function() {
-      var todo = {
-        uid: 'hoge',
-        title: this.newItem,
-        isDone: false,
-        createdAt: new Date()
-      }
-      this.todoList.push(todo)
+      this.todo.title = this.newItem
+      this.todoList.push(this.todo)
       this.newItem = ''
     }
   }
