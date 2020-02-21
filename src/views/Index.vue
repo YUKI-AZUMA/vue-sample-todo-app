@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Todoリスト</h1>
-    <input v-model="newItem" />
+    <input v-model="newTodo" />
     <button @click="addItem">追加！</button>
     <TodoItemList class="todo-item-list" :todoList="todoList" />
   </div>
@@ -17,21 +17,21 @@ export default {
 
   data() {
     return {
-      newItem: '',
-      todoList: [],
-      todo: {
-        uid: 'hoge',
-        title: '',
-        isDone: false,
-        createdAt: new Date()
-      }
+      newTodo: '',
+      todoList: []
     }
   },
   methods: {
-    addItem: function() {
-      this.todo.title = this.newItem
-      this.todoList.push(this.todo)
-      this.newItem = ''
+    addItem() {
+      this.todoList.push({
+        uid: Math.random()
+          .toString(32)
+          .substring(2),
+        title: this.newTodo,
+        isDone: false,
+        createdAt: new Date()
+      })
+      this.newTodo = ''
     }
   }
 }
