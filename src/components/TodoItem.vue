@@ -1,8 +1,7 @@
 <template>
   <div class="todo-item">
-    <input type="checkbox" />
-    <p>{{ todo.title }}</p>
-    <p>{{ todo.isDone }}</p>
+    <input type="checkbox" v-model="todo.isDone" />
+    <span :class="{ done: todo.isDone }">{{ todo.title }}</span>
     <button>編集</button>
     <button>削除</button>
   </div>
@@ -25,5 +24,10 @@ export default Vue.extend({
 <style scoped lang="scss">
 .todo-item {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+span.done {
+  text-decoration: line-through;
 }
 </style>

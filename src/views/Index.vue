@@ -1,10 +1,8 @@
 <template>
   <div>
     <h1>Todoリスト</h1>
-    <form>
-      <input />
-      <button>追加！</button>
-    </form>
+    <input v-model="newTodo" />
+    <button @click="addItem">追加！</button>
     <TodoItemList class="todo-item-list" :todoList="todoList" />
   </div>
 </template>
@@ -19,14 +17,21 @@ export default {
 
   data() {
     return {
-      todoList: [
-        {
-          uid: 'bp0m4jl4a08',
-          title: '7時に起きる',
-          isDone: false,
-          createdAt: new Date()
-        }
-      ]
+      newTodo: '',
+      todoList: []
+    }
+  },
+  methods: {
+    addItem() {
+      this.todoList.push({
+        uid: Math.random()
+          .toString(32)
+          .substring(2),
+        title: this.newTodo,
+        isDone: false,
+        createdAt: new Date()
+      })
+      this.newTodo = ''
     }
   }
 }
