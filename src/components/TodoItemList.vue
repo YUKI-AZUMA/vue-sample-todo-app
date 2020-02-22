@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div lass="todo-item-list">
     <TodoItem v-for="(todo, index) in todoList" :key="index" :todo="todo" />
   </div>
 </template>
@@ -21,3 +21,11 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style scoped lang="scss">
+.todo-item-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+</style>

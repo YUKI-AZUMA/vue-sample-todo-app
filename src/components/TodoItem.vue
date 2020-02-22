@@ -24,5 +24,7 @@ export default Vue.extend({
 <style scoped lang="scss">
 .todo-item {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
