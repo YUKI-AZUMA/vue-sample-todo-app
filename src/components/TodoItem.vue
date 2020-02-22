@@ -27,4 +27,7 @@ export default Vue.extend({
   justify-content: center;
   align-items: center;
 }
+span.done {
+  text-decoration: line-through;
+}
 </style>
