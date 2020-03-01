@@ -25,7 +25,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    deleteItem(index: any) {
+    deleteItem(index: BigInteger) {
       this.$emit('delete', index)
     }
   }
