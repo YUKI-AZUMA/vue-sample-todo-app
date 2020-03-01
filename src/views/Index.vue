@@ -6,7 +6,7 @@
     <TodoItemList
       class="todo-item-list"
       :todoList="todoList"
-      @delete="deleteItem(index)"
+      @delete="deleteItem($event)"
     />
   </div>
 </template>
