@@ -39,6 +39,7 @@
       "@vue/typescript"
     ],
     "rules": {
+      "no-console": "off",
       "prettier/prettier": [
         "error",
         {

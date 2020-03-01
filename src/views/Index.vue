@@ -3,7 +3,11 @@
     <h1>Todoリスト</h1>
     <input v-model="newTodo" />
     <button @click="addItem">追加！</button>
-    <TodoItemList class="todo-item-list" :todoList="todoList" />
+    <TodoItemList
+      class="todo-item-list"
+      :todoList="todoList"
+      @delete="deleteItem($event)"
+    />
   </div>
 </template>
 
@@ -32,6 +36,9 @@ export default {
         createdAt: new Date()
       })
       this.newTodo = ''
+    },
+    deleteItem(index) {
+      this.todoList.splice(index, 1)
     }
   }
 }

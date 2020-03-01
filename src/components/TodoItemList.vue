@@ -1,6 +1,11 @@
 <template>
   <div lass="todo-item-list">
-    <TodoItem v-for="(todo, index) in todoList" :key="index" :todo="todo" />
+    <TodoItem
+      v-for="(todo, index) in todoList"
+      :key="index"
+      :todo="todo"
+      @delete="deleteItem(index)"
+    />
   </div>
 </template>
 
@@ -17,6 +22,11 @@ export default Vue.extend({
     todoList: {
       type: Array as PropType<Todo[]>,
       required: true
+    }
+  },
+  methods: {
+    deleteItem(index: BigInteger) {
+      this.$emit('delete', index)
     }
   }
 })

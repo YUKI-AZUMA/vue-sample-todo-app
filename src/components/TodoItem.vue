@@ -3,7 +3,7 @@
     <input type="checkbox" v-model="todo.isDone" />
     <span :class="{ done: todo.isDone }">{{ todo.title }}</span>
     <button>編集</button>
-    <button>削除</button>
+    <button @click="deleteItem()">削除</button>
   </div>
 </template>
 
@@ -16,6 +16,11 @@ export default Vue.extend({
     todo: {
       type: Object as PropType<Todo>,
       required: true
+    }
+  },
+  methods: {
+    deleteItem() {
+      this.$emit('delete')
     }
   }
 })
