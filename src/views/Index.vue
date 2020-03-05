@@ -42,7 +42,11 @@ export default {
       this.todoList.splice(index, 1)
     },
     updateItem(event) {
-      this.todoList[event.index].text = event.updateTodo
+      this.todoList.forEach((todo, i) => {
+        if (todo.uid === event.updateTodo.uid) {
+          todo.title = event.updateTodo.title
+        }
+      })
     }
   }
 }
