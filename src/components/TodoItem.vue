@@ -39,6 +39,7 @@ export default Vue.extend({
       this.$emit('delete')
     },
     updateItem() {
+      this.showEditArea()
       this.todo.title = this.updateTodo
       this.$emit('update', this.todo)
     }
