@@ -1,6 +1,6 @@
 <template>
   <div class="todo-item">
-    <div v-if="show">
+    <div v-if="isShow">
       <input type="checkbox" v-model="todo.isDone" />
       <span :class="{ done: todo.isDone }">{{ todo.title }}</span>
       <button @click="showEditArea()">編集</button>
@@ -9,7 +9,7 @@
     <div v-else>
       <input v-model="updateTodo" />
       <button @click="updateItem()">更新</button>
-      <button @click="canvelEditArea()">キャンセル</button>
+      <button @click="showEditArea()">キャンセル</button>
     </div>
   </div>
 </template>
@@ -22,7 +22,7 @@ export default Vue.extend({
   data() {
     return {
       updateTodo: '',
-      show: true
+      isShow: true
     }
   },
   props: {
@@ -33,10 +33,7 @@ export default Vue.extend({
   },
   methods: {
     showEditArea() {
-      this.show = false
-    },
-    canvelEditArea() {
-      this.show = true
+      this.isShow = !this.isShow
     },
     deleteItem() {
       this.$emit('delete')
