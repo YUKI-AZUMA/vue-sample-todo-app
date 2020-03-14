@@ -1,9 +1,16 @@
 <template>
   <div class="todo-item">
-    <input type="checkbox" v-model="todo.isDone" />
-    <span :class="{ done: todo.isDone }">{{ todo.title }}</span>
-    <button>編集</button>
-    <button @click="deleteItem()">削除</button>
+    <div v-if="isShow">
+      <input type="checkbox" v-model="todo.isDone" />
+      <span :class="{ done: todo.isDone }">{{ todo.title }}</span>
+      <button @click="showEditArea()">編集</button>
+      <button @click="deleteItem()">削除</button>
+    </div>
+    <div v-else>
+      <input v-model="updateTodo" />
+      <button @click="updateItem()">更新</button>
+      <button @click="showEditArea()">キャンセル</button>
+    </div>
   </div>
 </template>
 
@@ -12,6 +19,12 @@ import Vue, { PropType } from 'vue'
 import { Todo } from '../../types'
 
 export default Vue.extend({
+  data() {
+    return {
+      updateTodo: '',
+      isShow: true
+    }
+  },
   props: {
     todo: {
       type: Object as PropType<Todo>,
@@ -19,8 +32,16 @@ export default Vue.extend({
     }
   },
   methods: {
+    showEditArea() {
+      this.isShow = !this.isShow
+    },
     deleteItem() {
       this.$emit('delete')
+    },
+    updateItem() {
+      this.showEditArea()
+      this.todo.title = this.updateTodo
+      this.$emit('update', this.todo)
     }
   }
 })

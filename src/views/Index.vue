@@ -7,6 +7,7 @@
       class="todo-item-list"
       :todoList="todoList"
       @delete="deleteItem($event)"
+      @update="updateItem($event)"
     />
   </div>
 </template>
@@ -39,6 +40,13 @@ export default {
     },
     deleteItem(index) {
       this.todoList.splice(index, 1)
+    },
+    updateItem(event) {
+      this.todoList.forEach((todo, i) => {
+        if (todo.uid === event.updateTodo.uid) {
+          todo.title = event.updateTodo.title
+        }
+      })
     }
   }
 }

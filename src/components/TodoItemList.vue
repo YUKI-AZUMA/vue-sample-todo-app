@@ -5,6 +5,7 @@
       :key="index"
       :todo="todo"
       @delete="deleteItem(index)"
+      @update="updateItem($event, index)"
     />
   </div>
 </template>
@@ -27,6 +28,9 @@ export default Vue.extend({
   methods: {
     deleteItem(index: BigInteger) {
       this.$emit('delete', index)
+    },
+    updateItem(updateTodo: string, index: BigInteger) {
+      this.$emit('update', { index, updateTodo })
     }
   }
 })
