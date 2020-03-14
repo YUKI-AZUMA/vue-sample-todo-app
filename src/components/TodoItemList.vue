@@ -29,7 +29,7 @@ export default Vue.extend({
     deleteItem(index: BigInteger) {
       this.$emit('delete', index)
     },
-    updateItem(updateTodo: String, index: BigInteger) {
+    updateItem(updateTodo: string, index: BigInteger) {
       this.$emit('update', { index, updateTodo })
     }
   }
